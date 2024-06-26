@@ -1,6 +1,6 @@
 #include "Matrix.h"
 
-Matrix::Matrix()
+Matrix::Matrix() //конструктор без аргументов
 {
     str = 10;
         a = new tstr[str]; //выделение динамической памяти под массив
@@ -12,7 +12,7 @@ Matrix::Matrix()
             }
             }
 }
-Matrix::Matrix(int x)
+Matrix::Matrix(int x) //конструктор с одним аргументом
 {
     str = x;
     a = new tstr[str]; //выделение динамической памяти под массив
@@ -24,7 +24,7 @@ Matrix::Matrix(int x)
         }
         }
 }
-Matrix::~Matrix()
+Matrix::~Matrix() //деструктор
 {
     for (int i = 0; i < str; i++) delete a[i];
     delete a;
@@ -54,8 +54,8 @@ void Matrix::sort_vibor(tstr a, int n)
         	a[imin] = z;
     }
 }
-void Matrix::sort_matr()
-{
+void Matrix::sort_matr() //ограничение области сортировки происходит за счет
+{                        //разделения матрицы на симметричные области
 	int start = 0;
     for (int i = 0; i < str/2 ; i ++)
     {
@@ -95,8 +95,8 @@ void Matrix::sort_matr()
     
 	
 }
-void Matrix::obnulenie()
-{
+void Matrix::obnulenie() // по условию, все что находится вне области сортировки
+{                        // должно быть заменено на 0
     for (int j = 0; j < str/2 ; j ++)
     {
     for (int x = 0; x < str/2; x ++)
